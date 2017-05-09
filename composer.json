@@ -1,0 +1,18 @@
+{
+  "name": "pxgamer/diffchecker",
+  "description": "An object oriented class for the DiffChecker tool.",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "keywords": [
+    "diff",
+    "diffchecker"
+  ],
+  "autoload": {
+    "psr-4": {
+      "pxgamer\\DiffChecker\\": "src/"
+    }
+  },
+  "require": {
+    "symfony/console": "3.2.x-dev"
+  }
+}

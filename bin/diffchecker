@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+require __DIR__.'/../vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+use pxgamer\DiffChecker\Command\DiffChecker;
+use pxgamer\DiffChecker\Command\Authorise;
+
+define('BIN_DIR', __DIR__ . DIRECTORY_SEPARATOR);
+
+$application = new Application('DiffChecker', '1.0.0');
+
+$application->add(new Authorise());
+$application->add(new DiffChecker());
+
+$application->run();
