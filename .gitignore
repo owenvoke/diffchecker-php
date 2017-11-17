@@ -1,3 +1,4 @@
-/vendor/
-/bin/credentials.json
-/composer.lock
+build
+composer.lock
+vendor
+bin/credentials.json
