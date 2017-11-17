@@ -75,17 +75,17 @@ If you discover any security related issues, please email owzie123@gmail.com ins
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/pxgamer/diffchecker-php.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/pxgamer/diffchecker.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/pxgamer/diffchecker-php/master.svg?style=flat-square
 [ico-styleci]: https://styleci.io/repos/90740779/shield
 [ico-code-quality]: https://img.shields.io/codecov/c/github/pxgamer/diffchecker-php.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/pxgamer/diffchecker-php.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/pxgamer/diffchecker.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/pxgamer/diffchecker-php
+[link-packagist]: https://packagist.org/packages/pxgamer/diffchecker
 [link-travis]: https://travis-ci.org/pxgamer/diffchecker-php
 [link-styleci]: https://styleci.io/repos/90740779
 [link-code-quality]: https://codecov.io/gh/pxgamer/diffchecker-php
-[link-downloads]: https://packagist.org/packages/pxgamer/diffchecker-php
+[link-downloads]: https://packagist.org/packages/pxgamer/diffchecker
 [link-author]: https://github.com/pxgamer
 [link-contributors]: ../../contributors
