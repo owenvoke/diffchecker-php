@@ -106,7 +106,9 @@ class DiffChecker extends Command
             $curl_response = json_decode(curl_exec($cu));
 
             $response->status = true;
-            $response->text = isset($curl_response->slug) ? Config::BASE_URL.'/'.$curl_response->slug : 'Failed to create diff.';
+            $response->text = isset($curl_response->slug) ?
+                Config::BASE_URL.'/'.$curl_response->slug :
+                'Failed to create diff.';
             return $response;
         } else {
             $response->status = false;
