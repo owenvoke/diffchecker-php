@@ -6,9 +6,7 @@ use Symfony\Component\Console\Application;
 use pxgamer\DiffChecker\Command\DiffChecker;
 use pxgamer\DiffChecker\Command\Authorise;
 
-define('BIN_DIR', __DIR__ . DIRECTORY_SEPARATOR);
-
-$application = new Application('DiffChecker', '1.0.0');
+$application = new Application('DiffChecker', '1.0.1');
 
 $application->add(new Authorise());
 $application->add(new DiffChecker());
