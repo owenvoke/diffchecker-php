@@ -10,7 +10,6 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
  * Class Authorise
- * @package pxgamer\DiffChecker\Command
  */
 class Authorise extends Command
 {
@@ -35,8 +34,8 @@ class Authorise extends Command
             '---------------'
         ]);
 
-        if (file_exists(BIN_DIR . 'credentials.json')) {
-            $json = json_decode(file_get_contents(BIN_DIR . 'credentials.json'));
+        if (file_exists(Config::BIN_DIR.'credentials.json')) {
+            $json = json_decode(file_get_contents(Config::BIN_DIR.'credentials.json'));
 
             if ($json->token) {
                 $io->success('Your account is already authenticated.');
@@ -48,7 +47,7 @@ class Authorise extends Command
         $password = $io->askHidden('Enter your password: ');
 
         if ($data = self::authorise($email, $password)) {
-            file_put_contents(BIN_DIR . 'credentials.json', json_encode(['token' => $data]));
+            file_put_contents(Config::BIN_DIR.'credentials.json', json_encode(['token' => $data]));
 
             $io->success('Successfully authenticated your account.');
             return true;
@@ -66,8 +65,8 @@ class Authorise extends Command
     public static function authorise($email = false, $password = false)
     {
         if (!$email && !$password) {
-            if (file_exists(BIN_DIR . 'credentials.json')) {
-                $json = json_decode(file_get_contents(BIN_DIR . 'credentials.json'));
+            if (file_exists(Config::BIN_DIR.'credentials.json')) {
+                $json = json_decode(file_get_contents(Config::BIN_DIR.'credentials.json'));
 
                 if ($json->token) {
                     return $json->token;
@@ -85,7 +84,7 @@ class Authorise extends Command
         curl_setopt_array(
             $cu,
             [
-                CURLOPT_URL => Config::API_URL . '/sessions',
+                CURLOPT_URL => Config::API_URL.'/sessions',
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_POST => true,
                 CURLOPT_POSTFIELDS => http_build_query($array)
