@@ -4,13 +4,13 @@ namespace pxgamer\DiffChecker\Command;
 
 use pxgamer\DiffChecker\Config;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
- * Class DiffChecker
+ * Class DiffChecker.
  */
 class DiffChecker extends Command
 {
@@ -35,7 +35,7 @@ class DiffChecker extends Command
         $io = new SymfonyStyle($input, $output);
         $io->text([
             'Diff Comparison',
-            '---------------'
+            '---------------',
         ]);
 
         $file_1 = $input->getArgument('file_1');
@@ -46,21 +46,21 @@ class DiffChecker extends Command
         $io->table(
             [
                 'Name',
-                'Value'
+                'Value',
             ],
             [
                 [
                     'File 1',
-                    $file_1
+                    $file_1,
                 ],
                 [
                     'File 2',
-                    $file_2
+                    $file_2,
                 ],
                 [
                     'Response',
-                    $link->text
-                ]
+                    $link->text,
+                ],
             ]
         );
     }
@@ -75,9 +75,10 @@ class DiffChecker extends Command
     {
         $response = new \stdClass();
 
-        if (!file_exists($file_1) || !file_exists($file_2)) {
+        if (! file_exists($file_1) || ! file_exists($file_2)) {
             $response->status = false;
             $response->text = 'File(s) not found. Please check your file paths.';
+
             return $response;
         }
 
@@ -87,7 +88,7 @@ class DiffChecker extends Command
             $array = [
                 'left' => file_get_contents($file_1),
                 'right' => file_get_contents($file_2),
-                'expires' => $expires
+                'expires' => $expires,
             ];
 
             curl_setopt_array(
@@ -98,8 +99,8 @@ class DiffChecker extends Command
                     CURLOPT_POST => true,
                     CURLOPT_POSTFIELDS => http_build_query($array),
                     CURLOPT_HTTPHEADER => [
-                        'Authorization: Bearer '.$token
-                    ]
+                        'Authorization: Bearer '.$token,
+                    ],
                 ]
             );
 
@@ -109,10 +110,12 @@ class DiffChecker extends Command
             $response->text = isset($curl_response->slug) ?
                 Config::BASE_URL.'/'.$curl_response->slug :
                 'Failed to create diff.';
+
             return $response;
         } else {
             $response->status = false;
             $response->text = 'Failed to authenticate your account. Please try again.';
+
             return $response;
         }
     }

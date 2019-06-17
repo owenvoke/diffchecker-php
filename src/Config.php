@@ -3,7 +3,7 @@
 namespace pxgamer\DiffChecker;
 
 /**
- * Class Config
+ * Class Config.
  */
 class Config
 {
