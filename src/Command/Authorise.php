@@ -13,7 +13,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class Authorise extends Command
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('auth')
@@ -24,9 +24,10 @@ class Authorise extends Command
     /**
      * @param InputInterface $input
      * @param OutputInterface $output
-     * @return bool
+     *
+     * @return void
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): void
     {
         $io = new SymfonyStyle($input, $output);
         $io->text([
@@ -40,7 +41,7 @@ class Authorise extends Command
             if ($json->token) {
                 $io->success('Your account is already authenticated.');
 
-                return true;
+                return;
             }
         }
 
@@ -52,12 +53,10 @@ class Authorise extends Command
 
             $io->success('Successfully authenticated your account.');
 
-            return true;
-        } else {
-            $io->warning('Failed to authenticate your account. Please try again.');
-
-            return false;
+            return;
         }
+
+        $io->warning('Failed to authenticate your account. Please try again.');
     }
 
     /**

@@ -14,7 +14,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class DiffChecker extends Command
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('diff')
@@ -28,9 +28,10 @@ class DiffChecker extends Command
     /**
      * @param InputInterface $input
      * @param OutputInterface $output
-     * @return int|null|void
+     *
+     * @return void
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): void
     {
         $io = new SymfonyStyle($input, $output);
         $io->text([
@@ -112,11 +113,11 @@ class DiffChecker extends Command
                 'Failed to create diff.';
 
             return $response;
-        } else {
-            $response->status = false;
-            $response->text = 'Failed to authenticate your account. Please try again.';
-
-            return $response;
         }
+
+        $response->status = false;
+        $response->text = 'Failed to authenticate your account. Please try again.';
+
+        return $response;
     }
 }
