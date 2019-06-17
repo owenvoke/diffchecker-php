@@ -4,12 +4,12 @@ namespace pxgamer\DiffChecker\Command;
 
 use pxgamer\DiffChecker\Config;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
- * Class Authorise
+ * Class Authorise.
  */
 class Authorise extends Command
 {
@@ -31,7 +31,7 @@ class Authorise extends Command
         $io = new SymfonyStyle($input, $output);
         $io->text([
             'Authorisation',
-            '---------------'
+            '---------------',
         ]);
 
         if (file_exists(Config::BIN_DIR.'credentials.json')) {
@@ -39,6 +39,7 @@ class Authorise extends Command
 
             if ($json->token) {
                 $io->success('Your account is already authenticated.');
+
                 return true;
             }
         }
@@ -50,9 +51,11 @@ class Authorise extends Command
             file_put_contents(Config::BIN_DIR.'credentials.json', json_encode(['token' => $data]));
 
             $io->success('Successfully authenticated your account.');
+
             return true;
         } else {
             $io->warning('Failed to authenticate your account. Please try again.');
+
             return false;
         }
     }
@@ -64,7 +67,7 @@ class Authorise extends Command
      */
     public static function authorise($email = false, $password = false)
     {
-        if (!$email && !$password) {
+        if (! $email && ! $password) {
             if (file_exists(Config::BIN_DIR.'credentials.json')) {
                 $json = json_decode(file_get_contents(Config::BIN_DIR.'credentials.json'));
 
@@ -76,7 +79,7 @@ class Authorise extends Command
 
         $array = [
             'email' => $email,
-            'password' => $password
+            'password' => $password,
         ];
 
         $cu = curl_init();
@@ -87,7 +90,7 @@ class Authorise extends Command
                 CURLOPT_URL => Config::API_URL.'/sessions',
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_POST => true,
-                CURLOPT_POSTFIELDS => http_build_query($array)
+                CURLOPT_POSTFIELDS => http_build_query($array),
             ]
         );
 
