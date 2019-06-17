@@ -9,20 +9,11 @@
 
 An object oriented class for the DiffChecker tool.
 
-## Structure
-
-```
-bin/
-src/
-tests/
-vendor/
-```
-
 ## Install
 
 Via Composer
 
-``` bash
+```bash
 $ composer require pxgamer/diffchecker-php
 ```
 
@@ -32,39 +23,23 @@ $ composer require pxgamer/diffchecker-php
 diffchecker list
 ```
 
-These classes utilise the DiffChecker API. In order to use this, you will require an account ([Sign up here](https://www.diffchecker.com/signup)).
-
-`pxgamer\DiffChecker\Config`  
-- `::BASE_URL` (The main website URL for DiffChecker, this is used when returning links to the created Diff.)
-- `::API_URL` (The API URL for DiffChecker, this is used in the API calls.)
-
-`pxgamer\DiffChecker\Command\Authorise`  
-- `configure()` (This is used by Symfony console)
-- `execute()` (This is used by Symfony console)
-- `::authorise($email, $password)` (This is the static authorisation function used to retrieve an access token.)
-
-`pxgamer\DiffChecker\Command\DiffChecker`  
-- `configure()` (This is used by Symfony console)
-- `execute()` (This is used by Symfony console)
-- `::diff($file_1, $file_2, $expires = 'forever')` (This is the static diff function used to create a new Diff between 2 files.)
-
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
 ## Testing
 
-``` bash
+```bash
 $ composer test
 ```
 
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) and [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md) for details.
+Please see [CONTRIBUTING](.github/CONTRIBUTING.md) and [CODE_OF_CONDUCT](.github/CODE_OF_CONDUCT.md) for details.
 
 ## Security
 
-If you discover any security related issues, please email owzie123@gmail.com instead of using the issue tracker.
+If you discover any security related issues, please email security@pxgamer.xyz instead of using the issue tracker.
 
 ## Credits
 
