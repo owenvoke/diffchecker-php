@@ -1,4 +1,6 @@
-build
-composer.lock
-vendor
-bin/credentials.json
+/build
+/vendor
+/composer.lock
+/phpcs.xml
+/phpunit.xml
+/bin/credentials.json
