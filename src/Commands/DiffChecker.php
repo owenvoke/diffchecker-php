@@ -1,6 +1,6 @@
 <?php
 
-namespace pxgamer\DiffChecker\Command;
+namespace pxgamer\DiffChecker\Commands;
 
 use pxgamer\DiffChecker\Config;
 use Symfony\Component\Console\Command\Command;
