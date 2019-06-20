@@ -4,7 +4,7 @@
     "description": "An object oriented class for the DiffChecker tool.",
     "license": "MIT",
     "require": {
-        "php": "^7.1",
+        "php": "^7.2",
         "symfony/console": "^4.0"
     },
     "require-dev": {
