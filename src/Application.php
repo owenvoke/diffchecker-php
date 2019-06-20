@@ -12,7 +12,7 @@ final class Application extends BaseApplication
 
     public function __construct(?string $name = null, ?string $version = null)
     {
-        if (!$version) {
+        if (! $version) {
             $version = static::VERSION === '@'.'git-version@' ?
                 'source' :
                 static::VERSION;
