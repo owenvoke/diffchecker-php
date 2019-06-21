@@ -7,7 +7,7 @@
 [![Code Coverage][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-An object oriented class for the DiffChecker tool.
+An command-line tool for the DiffChecker API.
 
 ## Install
 

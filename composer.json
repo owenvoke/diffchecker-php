@@ -1,7 +1,7 @@
 {
     "name": "pxgamer/diffchecker",
     "type": "library",
-    "description": "An object oriented class for the DiffChecker tool.",
+    "description": "An command-line tool for the DiffChecker API.",
     "license": "MIT",
     "require": {
         "php": "^7.2",
